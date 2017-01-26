@@ -1,0 +1,5 @@
+# possibly adjust CNT in twos.cpp
+make twos
+./twos > twos.dat
+./plot_twos.sh
+

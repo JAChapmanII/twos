@@ -1,5 +1,27 @@
-# possibly adjust CNT in twos.cpp
-make twos
-./twos > twos.dat
-./plot_twos.sh
+Prints the power of 2 in the prime factorization of the nonnegative integers.
+
+The exclusive upper bound of the integers printed by `twos` is set with the
+CNT #define in twos.cpp.
+
+To compile `twos`:
+	make twos
+
+The default output is a series of lines in the format
+	{num}: {exponent}
+
+{exponent} is the power of 2 in the prime factorization of {num}. For
+instance:
+	240: 4
+means that the prime factorization of 240 has 2^4 in it. This can be
+independently verified by using `factor`:
+	$ factor 240
+	240: 2 2 2 2 3 5
+
+A more complete automatic verification can be produced:
+	$ factor 240 | tr ' ' '\n' | grep '^2$' | wc -l
+	4
+
+To generate data and plot it using gnu plot:
+	./twos > twos.dat
+	./plot_twos.sh
 
